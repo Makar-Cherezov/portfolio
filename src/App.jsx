@@ -15,6 +15,7 @@ import {
   CheckCircle2,
   ExternalLink
 } from 'lucide-react';
+import resumePhoto from '../Фото для резюме.png';
 
 // --- DATA ---
 const personalInfo = {
@@ -39,7 +40,7 @@ const experience = [
     company: "red_mad_robot",
     role: "Бизнес- и системный аналитик",
     period: "Май 2025 - настоящее время",
-    location: "Москва",
+    location: "Москва (удалённо)",
     description: "Работа в формате стартапов и лабораторий инноваций. Проектирование сложных систем с внедрением AI.",
     projects: [
       {
@@ -70,12 +71,17 @@ const experience = [
       },
       {
         name: "Лаборатория применения AI в бизнесе (Телеком)",
-        type: "Анализ бизнес-процессов, внедрение AI",
+        type: "Телекоммуникации, закупки, нормативно-справочная информация, анализ бизнес-процессов, внедрение AI в бизнес",
         tasks: [
-          "Провел обследование процессов для поиска возможности внедрения AI.",
+          "Провел обследование процессов бизнес-юнитов клиента для поиска возможности внедрения AI.",
+          "Составил 3 фичлиста (для каждого юнита).",
           "Описал процессы AS IS и TO BE в BPMN.",
-          "Спроектировал и презентовал решения клиентам, согласовал экономическое обоснование.",
-          "Помог в организации нового типа проектов в компании, провел анализ рынка телекома."
+          "Спроектировал и презентовал решения клиентам.",
+          "Рассчитал и согласовал с клиентом экономическое обоснование проекта.",
+          "Разработал документ для описания и презентации продуктовых гипотез клиенту.",
+          "Провел анализ рынка для сегмента телекоммуникаций.",
+          "Помог в организации нового типа проектов в компании.",
+          "Провел обучение для коллег по результатам проекта."
         ]
       },
       {
@@ -261,31 +267,43 @@ export default function App() {
             </span>
             Открыт к предложениям
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4">
-            {personalInfo.name}
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mb-8 leading-relaxed">
-            {personalInfo.role}
-          </p>
-          
-          <div className="flex flex-wrap gap-4 text-sm text-slate-300 mb-10">
-            <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-              <MapPin size={16} className="text-indigo-400" />
-              {personalInfo.location}
-            </div>
-            <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-              <User size={16} className="text-indigo-400" />
-              {personalInfo.age} года
-            </div>
-            <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-              <LineChart size={16} className="text-emerald-400" />
-              Ожидания: {personalInfo.salary}
-            </div>
-          </div>
+          <div className="grid gap-8 lg:grid-cols-[240px_1fr] items-start">
+            <figure className="bg-slate-900/60 border border-slate-800 rounded-2xl p-3 backdrop-blur-sm">
+              <img
+                src={resumePhoto}
+                alt="Фото для резюме"
+                className="w-full h-auto rounded-xl object-cover"
+              />
+            </figure>
 
-          <p className="text-lg text-slate-300 max-w-3xl leading-relaxed bg-slate-900/50 p-6 rounded-2xl border border-slate-800 backdrop-blur-sm">
-            {personalInfo.about}
-          </p>
+            <div>
+              <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4">
+                {personalInfo.name}
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mb-8 leading-relaxed">
+                {personalInfo.role}
+              </p>
+              
+              <div className="flex flex-wrap gap-4 text-sm text-slate-300 mb-10">
+                <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
+                  <MapPin size={16} className="text-indigo-400" />
+                  {personalInfo.location}
+                </div>
+                <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
+                  <User size={16} className="text-indigo-400" />
+                  {personalInfo.age} года
+                </div>
+                <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
+                  <LineChart size={16} className="text-emerald-400" />
+                  Ожидания: {personalInfo.salary}
+                </div>
+              </div>
+            </div>
+
+            <p className="text-lg text-slate-300 leading-relaxed bg-slate-900/50 p-6 rounded-2xl border border-slate-800 backdrop-blur-sm lg:col-span-2">
+              {personalInfo.about}
+            </p>
+          </div>
         </div>
       </header>
 
