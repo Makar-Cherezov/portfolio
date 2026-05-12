@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { 
-  Briefcase, 
-  GraduationCap, 
-  BrainCircuit, 
-  Code2, 
-  User, 
-  MapPin, 
-  Mail, 
-  ChevronDown, 
+import {
+  Briefcase,
+  GraduationCap,
+  BrainCircuit,
+  Code2,
+  User,
+  MapPin,
+  Mail,
+  ChevronDown,
   ChevronUp,
   Target,
   LineChart,
   Lightbulb,
   CheckCircle2,
-  ExternalLink
+  ExternalLink,
+  Trophy
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import resumePhoto from '../Фото для резюме.png';
@@ -72,6 +73,7 @@ export default function App() {
   const experience = t('experience', { returnObjects: true });
   const skills = t('skills', { returnObjects: true });
   const education = t('education', { returnObjects: true });
+  const achievements = t('achievements', { returnObjects: true });
   const ui = t('ui', { returnObjects: true });
 
   const skillIcons = [
@@ -237,6 +239,26 @@ export default function App() {
                   )}
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* ACHIEVEMENTS */}
+          <section id="achievements">
+            <SectionHeading icon={<Trophy />} title={ui.achievementsTitle} />
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+              <ul className="space-y-4">
+                {achievements.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-4">
+                    <div className="mt-1 shrink-0 text-amber-400">
+                      <Trophy size={16} />
+                    </div>
+                    <div>
+                      <span className="text-slate-200">{item.title}</span>
+                      <span className="ml-2 text-sm font-semibold text-amber-400">{item.year}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 

@@ -14,6 +14,7 @@ const resources = {
         skillsTitle: 'Компетенции и навыки',
         educationTitle: 'Образование',
         interestsTitle: 'Профессиональные интересы',
+        achievementsTitle: 'Достижения',
         footerCopyright: '© {year} Макар Черезов. Сайт-портфолио.',
         footerNote:
           'Спроектировано для демонстрации расширенного опыта, не вмещающегося в стандартное резюме.',
@@ -149,6 +150,27 @@ const resources = {
           ],
         },
         {
+          id: 'sibagro_system_analyst',
+          company: 'Сибагро - ИТ',
+          role: 'Системный аналитик',
+          period: 'Апрель 2024 - Октябрь 2024',
+          location: 'Томск',
+          description:
+            'Обследование процессов финансового блока холдинга, разработка ТЗ на доработку 1С, участие в проекте роботизации.',
+          projects: [
+            {
+              name: 'Финансовый блок холдинга и проект роботизации (RPA)',
+              type: 'Системная аналитика, BPMN, 1С, RPA',
+              tasks: [
+                'Провел обследование бизнес-процессов отдела финансов и казначейства холдинга.',
+                'Построил схемы процессов AS IS и TO BE в BPMN.',
+                'Самостоятельно проанализировал самописные конфигурации 1С, изучил обмены данными между ними — на основании этого разработал техническое задание на доработку.',
+                'Участвовал в проекте роботизации (RPA): провел анализ бизнес-процесса, разработал концепцию и представил ее ЛПР и подрядчикам.',
+              ],
+            },
+          ],
+        },
+        {
           id: 'intek',
           company: 'Интэк',
           role: 'Проджект-менеджер',
@@ -222,6 +244,20 @@ const resources = {
           ],
         },
       ],
+      achievements: [
+        {
+          title: 'Стипендиат Правительства РФ и Президента РФ за достижения в науке и учёбе',
+          year: '2022–2025',
+        },
+        {
+          title: 'Победитель конкурса менеджеров на форуме «Шерегеш» (Росмолодёжь)',
+          year: '2024',
+        },
+        {
+          title: 'Победитель конкурсов ДКЭ «Project Manager IT»',
+          year: '2022, 2023',
+        },
+      ],
       education: [
         {
           university: 'Томский государственный университет',
@@ -250,6 +286,7 @@ const resources = {
         skillsTitle: 'Competencies and Skills',
         educationTitle: 'Education',
         interestsTitle: 'Professional Interests',
+        achievementsTitle: 'Achievements',
         footerCopyright: '© {year} Makar Cherezov. Portfolio website.',
         footerNote:
           'Designed to showcase extended experience that does not fit in a standard one-page resume.',
@@ -385,6 +422,27 @@ const resources = {
           ],
         },
         {
+          id: 'sibagro_system_analyst',
+          company: 'Sibagro - IT',
+          role: 'Systems Analyst',
+          period: 'Apr 2024 - Oct 2024',
+          location: 'Tomsk',
+          description:
+            'Analyzed finance division processes in the holding, developed technical specification for 1C enhancements, and participated in an RPA initiative.',
+          projects: [
+            {
+              name: 'Holding finance processes and RPA initiative',
+              type: 'Systems analysis, BPMN, 1C, RPA',
+              tasks: [
+                'Conducted business process discovery for the holding finance and treasury department.',
+                'Built AS-IS and TO-BE process models in BPMN.',
+                'Independently analyzed custom 1C configurations, studied data exchanges between them, and prepared a technical specification for enhancements based on findings.',
+                'Participated in an RPA project: analyzed the business process, developed the concept, and presented it to decision makers and contractors.',
+              ],
+            },
+          ],
+        },
+        {
           id: 'intek',
           company: 'Intek',
           role: 'Project Manager',
@@ -456,6 +514,20 @@ const resources = {
             'Presentation and facilitation',
             'Self-reflection',
           ],
+        },
+      ],
+      achievements: [
+        {
+          title: 'Russian Government and Presidential Scholarship for academic and scientific achievements',
+          year: '2022–2025',
+        },
+        {
+          title: 'Winner of the managers competition at the Sheregesh forum (Rosmolodezh)',
+          year: '2024',
+        },
+        {
+          title: 'Winner of the DKE "Project Manager IT" competitions',
+          year: '2022, 2023',
         },
       ],
       education: [
