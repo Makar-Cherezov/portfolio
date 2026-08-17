@@ -7,8 +7,7 @@ const resources = {
       ui: {
         openToOffers: 'Открыт к предложениям',
         photoAlt: 'Фото для резюме',
-        ageLabel: 'года',
-        salaryLabel: 'Ожидания',
+        remoteWork: 'Удаленная работа',
         projectTasks: 'Ключевые задачи и кейсы:',
         experienceTitle: 'Опыт работы',
         skillsTitle: 'Компетенции и навыки',
@@ -22,9 +21,7 @@ const resources = {
       personalInfo: {
         name: 'Макар Черезов',
         role: 'Бизнес- и системный аналитик | Менеджер ИТ-проектов',
-        age: 22,
-        location: 'Томск, Россия (Удаленно / Гибрид)',
-        salary: '170 000 - 180 000 ₽',
+        location: 'Новосибирск, Россия',
         about:
           'Имею опыт анализа проблем и внедрения решений на базе ИИ. Интересуюсь тем, как устроены организации и как их можно улучшить. Изучаю стандарты разработки, управления и качества. Внедрял инструменты управления проектами в организацию с уровнем управления CMMI 1 (начальный, хаотичный). Люблю обучаться и обучать коллег.',
         interests: [
@@ -279,8 +276,7 @@ const resources = {
       ui: {
         openToOffers: 'Open to opportunities',
         photoAlt: 'Resume photo',
-        ageLabel: 'years old',
-        salaryLabel: 'Salary expectation',
+        remoteWork: 'Remote work',
         projectTasks: 'Key responsibilities and cases:',
         experienceTitle: 'Work Experience',
         skillsTitle: 'Competencies and Skills',
@@ -294,9 +290,7 @@ const resources = {
       personalInfo: {
         name: 'Makar Cherezov',
         role: 'Business & Systems Analyst | IT Project Manager',
-        age: 22,
-        location: 'Tomsk, Russia (Remote / Hybrid)',
-        salary: '170,000 - 180,000 RUB',
+        location: 'Novosibirsk, Russia',
         about:
           'I have hands-on experience in problem analysis and AI-driven solution implementation. I am interested in how organizations work and how they can be improved. I study engineering, quality, and management standards. I implemented project management tools in an organization assessed at CMMI level 1 (initial, chaotic). I enjoy both learning and mentoring colleagues.',
         interests: [

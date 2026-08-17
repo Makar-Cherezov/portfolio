@@ -6,11 +6,11 @@ import {
   Code2,
   User,
   MapPin,
+  Wifi,
   Mail,
   ChevronDown,
   ChevronUp,
   Target,
-  LineChart,
   Lightbulb,
   CheckCircle2,
   ExternalLink,
@@ -143,12 +143,8 @@ export default function App() {
                   {personalInfo.location}
                 </div>
                 <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-                  <User size={16} className="text-indigo-400" />
-                  {personalInfo.age} {ui.ageLabel}
-                </div>
-                <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-                  <LineChart size={16} className="text-emerald-400" />
-                  {ui.salaryLabel}: {personalInfo.salary}
+                  <Wifi size={16} className="text-emerald-400" />
+                  {ui.remoteWork}
                 </div>
               </div>
             </div>
