@@ -1,1 +1,68 @@
 @import "tailwindcss";
+
+/* ---- Fonts (self-hosted, cyrillic + latin subsets) ---- */
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('./assets/fonts/manrope-700-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('./assets/fonts/manrope-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('./assets/fonts/manrope-800-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('./assets/fonts/manrope-800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:400;font-display:swap;src:url('./assets/fonts/mulish-400-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:400;font-display:swap;src:url('./assets/fonts/mulish-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:600;font-display:swap;src:url('./assets/fonts/mulish-600-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:600;font-display:swap;src:url('./assets/fonts/mulish-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:700;font-display:swap;src:url('./assets/fonts/mulish-700-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:700;font-display:swap;src:url('./assets/fonts/mulish-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+
+/* ---- Design tokens (Tailwind v4 theme) ---- */
+@theme {
+  --font-sans: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Manrope', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
+
+  /* Surfaces */
+  --color-bg: #F4EDE0;
+  --color-surface: #FCF8F0;
+  --color-sink: #EFE7D6;
+  --color-line: #E3D6BF;
+
+  /* Text */
+  --color-ink: #2A2119;
+  --color-heading: #8A335C;
+  --color-caption: #93826A;
+  --color-body: #4B4137;
+
+  /* Highlights — teal (primary) */
+  --color-teal: #0E9C8F;
+  --color-teal-deep: #0A756B;
+  --color-teal-soft: #DFF0EC;
+
+  /* Highlights — terracotta (secondary) */
+  --color-coral: #D25E36;
+  --color-coral-deep: #B0461F;
+  --color-coral-soft: #F8E7DD;
+
+  --shadow-soft: 0 1px 2px rgba(42, 33, 25, 0.05), 0 10px 30px rgba(42, 33, 25, 0.06);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+}
+
+/* ---- Marker highlight ---- */
+.mark {
+  background-image: linear-gradient(180deg, transparent 56%, var(--mk) 56%, var(--mk) 94%, transparent 94%);
+  padding: 0 0.12em;
+  margin: 0 -0.02em;
+  color: var(--color-ink);
+  font-weight: 700;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.mark-teal  { --mk: rgba(16, 178, 160, 0.40); }
+.mark-coral { --mk: rgba(224, 110, 66, 0.38); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

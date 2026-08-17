@@ -6,24 +6,35 @@ const resources = {
     translation: {
       ui: {
         openToOffers: 'Открыт к предложениям',
-        photoAlt: 'Фото для резюме',
         remoteWork: 'Удаленная работа',
-        projectTasks: 'Ключевые задачи и кейсы:',
-        experienceTitle: 'Опыт работы',
-        skillsTitle: 'Компетенции и навыки',
-        educationTitle: 'Образование',
-        interestsTitle: 'Профессиональные интересы',
-        achievementsTitle: 'Достижения',
+        photoAlt: 'Фото для резюме',
+        projectTasks: 'Что делал на проекте:',
+        positionsTitle: 'Позиции, на которые я претендую',
+        positionsCaption: 'Роли, в которых я приношу максимум пользы',
+        aboutTitle: 'О себе',
+        aboutCaption: 'Коротко о том, как я работаю и что мне важно',
+        tasksTitle: 'Какие задачи мне стоит давать',
+        tasksCaption: 'Типы задач, где я силён, — и мой стек под них',
+        tasksStack: 'Инструменты и стек',
+        expectationsTitle: 'Что я жду от работодателя',
+        expectationsCaption: 'Условия, в которых я работаю с максимальной отдачей',
+        perksTitle: 'Мои плюшки',
+        perksCaption: 'Что вы получаете вместе со мной — сверх резюме',
+        perksProjects: 'Портфолио проектов',
+        perksHuman: 'Что приношу в команду',
+        perksInterests: 'Профессиональные интересы',
+        perksEducation: 'Образование',
+        perksAchievements: 'Достижения',
         footerCopyright: '© {year} Макар Черезов. Сайт-портфолио.',
         footerNote:
           'Спроектировано для демонстрации расширенного опыта, не вмещающегося в стандартное резюме.',
       },
       personalInfo: {
         name: 'Макар Черезов',
-        role: 'Бизнес- и системный аналитик | Менеджер ИТ-проектов',
+        role: 'Middle Системный аналитик с практической экспертизой в AI и менеджменте',
         location: 'Новосибирск, Россия',
         about:
-          'Имею опыт анализа проблем и внедрения решений на базе ИИ. Интересуюсь тем, как устроены организации и как их можно улучшить. Изучаю стандарты разработки, управления и качества. Внедрял инструменты управления проектами в организацию с уровнем управления CMMI 1 (начальный, хаотичный). Люблю обучаться и обучать коллег.',
+          '12 проектов за 3 года работы. Как менеджер проектов в агрохолдинге управлял внедрением ИТ-решений, создавал процессы и подразделения, выстраивал проектную культуру в департаменте. В заказной разработке внедрял AI в телеком, документооборот, управление знаниями; создавал продукты с AI: платформа управления рекламой в e-commerce, финтех-приложение для управления финансами на рынке ОАЭ. В командной работе применяю передовые практики и инструменты, создаю доброжелательную атмосферу, слышу разные точки зрения и грамотно доношу свою.',
         interests: [
           'Методологии разработки (SEMAT Essence)',
           'Моделирование бизнес-процессов',
@@ -32,6 +43,82 @@ const resources = {
           'Повышение продуктивности с помощью нейросетей',
         ],
       },
+      positions: [
+        {
+          title: 'Системный аналитик',
+          note: 'Требования, модели процессов, проектирование API и данных.',
+        },
+        {
+          title: 'Бизнес-аналитик',
+          note: 'Обследование, процессы TO BE, экономическое обоснование решений.',
+        },
+        {
+          title: 'Менеджер ИТ-проектов',
+          note: 'Портфель проектов, методология, коммуникация со стейкхолдерами.',
+        },
+        {
+          title: 'Аналитик AI-решений',
+          note: 'Внедрение LLM в бизнес-процессы: гипотезы, сценарии, Structured Output.',
+        },
+      ],
+      tasks: [
+        {
+          title: 'Разобраться в процессе',
+          text: 'Провести обследование, описать AS IS и TO BE в BPMN, найти узкие места и точки для улучшения.',
+        },
+        {
+          title: 'Спроектировать решение',
+          text: 'Собрать и декомпозировать требования, спроектировать API, схему данных и интеграции, написать тест-кейсы.',
+        },
+        {
+          title: 'Внедрить AI в бизнес',
+          text: 'Проверить гипотезы, спроектировать AI-агента и Structured Output, рассчитать экономический эффект.',
+        },
+        {
+          title: 'Навести порядок',
+          text: 'Выстроить методологию, базу знаний, реестр решений и стандарты работы — даже с нуля в хаотичной среде.',
+        },
+      ],
+      expectations: [
+        {
+          title: 'Задачи со смыслом и рост',
+          text: 'Сложные задачи на стыке анализа и AI, где видно влияние на продукт и бизнес.',
+        },
+        {
+          title: 'Порядок в процессах — или мандат его навести',
+          text: 'Либо зрелые процессы, либо свобода и доверие выстроить их самому.',
+        },
+        {
+          title: 'Культура обучения',
+          text: 'Обмен знаниями, менторство, ретроспективы и право на ошибку.',
+        },
+        {
+          title: 'Дружелюбная команда',
+          text: 'Здоровая атмосфера, открытая коммуникация и уважение друг к другу.',
+        },
+        {
+          title: 'Гибкость',
+          text: 'Удалёнка или гибрид и фокус на результат, а не на часы в офисе.',
+        },
+      ],
+      softPerks: [
+        {
+          title: 'Инициативность',
+          text: 'Не жду, пока задачу поставят: сам нахожу узкие места и предлагаю улучшения.',
+        },
+        {
+          title: 'Дружеская атмосфера',
+          text: 'Поддерживаю здоровое общение, помогаю коллегам и делюсь знаниями.',
+        },
+        {
+          title: 'Наставничество',
+          text: 'Люблю обучать: провожу онбординги и делюсь наработками с командой.',
+        },
+        {
+          title: 'Энергия на корпоративах',
+          text: 'Активен в командных событиях и поддерживаю дух команды вне задач.',
+        },
+      ],
       experience: [
         {
           id: 'red_mad_robot',
@@ -40,17 +127,42 @@ const resources = {
           period: 'Май 2025 - настоящее время',
           location: 'Москва (удалённо)',
           description:
-            'Работа в формате стартапов и лабораторий инноваций. Проектирование систем с внедрением AI.',
+            'Работа в формате заказной разработки, стартапов и лабораторий инноваций. Проектирование систем с внедрением AI.',
           projects: [
             {
-              name: 'Сервис с ИИ-агентом для управления рекламой на Wildberries',
+              name: 'Приложение для управления финансами в ОАЭ с AI-ассистентом',
+              type: 'Финтех, регуляторные требования, AI-driven SDD-процесс разработки',
+              tasks: [
+                'Изучил документацию и предложения ключевых банков ОАЭ, составил модель каталога счетов, дебетовых и кредитных карт, наполнил каталог для PoC-запуска.',
+                'Изучил релевантные регуляторные требования по хранению и обработке данных.',
+                'Собрал бизнес-требования к AI-ассистенту, декомпозировал на User Story, разработал HLD для LLM рабочего процесса с тулами, презентовал архитектуру команде.',
+                'Описал бизнес- и функциональные требования по парсингу банковских выписок, разработал HLD и Sequence-диаграммы.',
+                'Работал по Spec-Driven Development с общим репозиторием для разработки и аналитики, чтобы обеспечить системное и контролируемое применение AI.',
+              ],
+            },
+            {
+              name: 'AI-ассистент для управления знаниями на основе внутренних документов',
+              type: 'Вопросно-ответная система, RAG, юридический отдел в телеком-компании',
+              tasks: [
+                'Обследовал и схематизировал процесс AS IS, спроектировал и согласовал процесс TO BE (UML Activity Diagram).',
+                'Разработал HLD.',
+                'Составил и согласовал с клиентом дерево метрик для результата проекта.',
+                'Составил фичлист проекта.',
+                'Составил и согласовал техническое задание на разработку.',
+                'Провел согласование архитектуры с отделом информационной безопасности клиента.',
+                'Разработанная система внедрена в контур клиента.',
+                'Провел ретроспективу проекта с менеджером и аудит проекта по стандарту Essence.',
+              ],
+            },
+            {
+              name: 'Сервис с AI-агентом для управления рекламой на Wildberries',
               type: 'Внедрение AI, аналитика данных, маркетплейсы',
               tasks: [
                 'Сформулировал измеримые цели проекта для бизнес-лидеров.',
                 'Обработал результаты каст-дева с селлерами, провел анализ конкурентов.',
                 'Собрал, формализовал и декомпозировал бизнес-требования до функциональных (с критериями приемки).',
                 'Подобрал референсы UX/UI, на которых обосновалась концепция агента.',
-                'Спроектировал ИИ-агента: карта сценариев, HLD, Sequence-диаграммы, разработал Structured Output.',
+                'Спроектировал AI-агента: карта сценариев, HLD, Sequence-диаграммы, разработал Structured Output.',
                 'Спроектировал API, схему данных, интеграции с маркетплейсом.',
                 'Создал базу знаний проекта, написал тест-кейсы, внедрил диаграмму Гантта.',
                 'Скорректировал процессы менеджмента с меняющейся командой, эскалировал проблемы и добился рефлексии на проекте.',
@@ -96,7 +208,7 @@ const resources = {
         {
           id: 'sibagro',
           company: 'Сибагро - ИТ',
-          role: 'Администратор проектов',
+          role: 'Администратор проектов / Менеджер',
           period: 'Октябрь 2024 - Май 2025',
           location: 'Томск',
           description:
@@ -275,21 +387,32 @@ const resources = {
     translation: {
       ui: {
         openToOffers: 'Open to opportunities',
-        photoAlt: 'Resume photo',
         remoteWork: 'Remote work',
-        projectTasks: 'Key responsibilities and cases:',
-        experienceTitle: 'Work Experience',
-        skillsTitle: 'Competencies and Skills',
-        educationTitle: 'Education',
-        interestsTitle: 'Professional Interests',
-        achievementsTitle: 'Achievements',
+        photoAlt: 'Resume photo',
+        projectTasks: 'What I did on the project:',
+        positionsTitle: 'Positions I fit',
+        positionsCaption: 'Roles where I bring the most value',
+        aboutTitle: 'About me',
+        aboutCaption: 'A short take on how I work and what matters to me',
+        tasksTitle: 'Tasks worth giving me',
+        tasksCaption: 'Where I am strong — and the stack behind it',
+        tasksStack: 'Tools and stack',
+        expectationsTitle: 'What I expect from an employer',
+        expectationsCaption: 'Conditions where I deliver my best',
+        perksTitle: 'My perks',
+        perksCaption: 'What you get with me — beyond the resume',
+        perksProjects: 'Project portfolio',
+        perksHuman: 'What I bring to a team',
+        perksInterests: 'Professional interests',
+        perksEducation: 'Education',
+        perksAchievements: 'Achievements',
         footerCopyright: '© {year} Makar Cherezov. Portfolio website.',
         footerNote:
           'Designed to showcase extended experience that does not fit in a standard one-page resume.',
       },
       personalInfo: {
         name: 'Makar Cherezov',
-        role: 'Business & Systems Analyst | IT Project Manager',
+        role: 'Business & Systems Analyst · IT Project Manager',
         location: 'Novosibirsk, Russia',
         about:
           'I have hands-on experience in problem analysis and AI-driven solution implementation. I am interested in how organizations work and how they can be improved. I study engineering, quality, and management standards. I implemented project management tools in an organization assessed at CMMI level 1 (initial, chaotic). I enjoy both learning and mentoring colleagues.',
@@ -301,6 +424,82 @@ const resources = {
           'Productivity improvement with neural networks',
         ],
       },
+      positions: [
+        {
+          title: 'Systems Analyst',
+          note: 'Requirements, process models, API and data design.',
+        },
+        {
+          title: 'Business Analyst',
+          note: 'Discovery, TO-BE processes, economic justification of solutions.',
+        },
+        {
+          title: 'IT Project Manager',
+          note: 'Project portfolios, methodology, stakeholder communication.',
+        },
+        {
+          title: 'AI Solutions Analyst',
+          note: 'Bringing LLMs into business processes: hypotheses, scenarios, Structured Output.',
+        },
+      ],
+      tasks: [
+        {
+          title: 'Understand the process',
+          text: 'Run discovery, map AS-IS and TO-BE in BPMN, and find bottlenecks and improvement points.',
+        },
+        {
+          title: 'Design the solution',
+          text: 'Collect and decompose requirements, design API, data schema, and integrations, write test cases.',
+        },
+        {
+          title: 'Bring AI into business',
+          text: 'Validate hypotheses, design an AI agent and Structured Output, calculate business impact.',
+        },
+        {
+          title: 'Bring order',
+          text: 'Set up methodology, knowledge base, decision register, and working standards — even from scratch in a chaotic environment.',
+        },
+      ],
+      expectations: [
+        {
+          title: 'Meaningful work and growth',
+          text: 'Complex tasks at the intersection of analysis and AI with visible impact on product and business.',
+        },
+        {
+          title: 'Mature processes — or a mandate to build them',
+          text: 'Either established processes, or the freedom and trust to set them up myself.',
+        },
+        {
+          title: 'A learning culture',
+          text: 'Knowledge sharing, mentorship, retrospectives, and room to make mistakes.',
+        },
+        {
+          title: 'A friendly team',
+          text: 'A healthy atmosphere, open communication, and mutual respect.',
+        },
+        {
+          title: 'Flexibility',
+          text: 'Remote or hybrid work and a focus on outcomes rather than hours in the office.',
+        },
+      ],
+      softPerks: [
+        {
+          title: 'Initiative',
+          text: "I don't wait for tasks to be assigned: I spot bottlenecks and propose improvements myself.",
+        },
+        {
+          title: 'Friendly atmosphere',
+          text: 'I keep communication healthy, help colleagues, and share knowledge.',
+        },
+        {
+          title: 'Mentorship',
+          text: 'I enjoy teaching: I run onboardings and pass my practices to the team.',
+        },
+        {
+          title: 'Energy at team events',
+          text: 'Active in team events and keeping team spirit alive beyond the tasks.',
+        },
+      ],
       experience: [
         {
           id: 'red_mad_robot',
@@ -542,9 +741,9 @@ const resources = {
   },
 };
 
-const savedLanguage = localStorage.getItem('portfolio-language');
-const browserLanguage = navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
-const initialLanguage = savedLanguage || browserLanguage;
+// EN toggle is temporarily hidden — pin the site to Russian until a dedicated
+// English version is ready.
+const initialLanguage = 'ru';
 
 i18n.use(initReactI18next).init({
   resources,

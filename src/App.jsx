@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
-  Briefcase,
   GraduationCap,
-  BrainCircuit,
-  Code2,
   User,
   MapPin,
   Wifi,
-  Mail,
   ChevronDown,
   ChevronUp,
   Target,
   Lightbulb,
   CheckCircle2,
-  ExternalLink,
-  Trophy
+  Trophy,
+  Sparkles,
+  Users,
+  Compass,
+  Gift,
+  ListChecks,
+  FolderKanban,
+  PartyPopper,
+  BrainCircuit,
+  Code2,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import resumePhoto from '../Фото для резюме.png';
 
-const SectionHeading = ({ icon, title }) => (
-  <div className="flex items-center gap-3 mb-8">
-    <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
-      {icon}
+const SectionHeading = ({ icon, title, caption }) => (
+  <div className="mb-10">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="grid place-items-center w-11 h-11 rounded-xl bg-coral-soft text-coral-deep shrink-0">
+        {icon}
+      </span>
+      <h2 className="font-display text-3xl md:text-4xl font-extrabold text-coral-deep tracking-tight text-balance">
+        {title}
+      </h2>
     </div>
-    <h2 className="text-3xl font-bold text-white tracking-tight">{title}</h2>
+    {caption && <p className="text-caption text-base md:text-lg pl-1">{caption}</p>}
   </div>
 );
 
@@ -33,30 +42,32 @@ const ProjectCard = ({ project }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300 hover:border-indigo-500/50">
-      <div 
-        className="p-5 cursor-pointer flex justify-between items-start gap-4"
+    <div className="bg-surface border border-line rounded-xl overflow-hidden transition-colors hover:border-teal/50">
+      <button
+        type="button"
+        className="w-full text-left p-5 cursor-pointer flex justify-between items-start gap-4"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
       >
         <div>
-          <h4 className="text-lg font-semibold text-slate-100">{project.name}</h4>
-          <p className="text-sm text-indigo-400 mt-1 font-medium">{project.type}</p>
+          <h4 className="font-display text-lg font-bold text-ink">{project.name}</h4>
+          <p className="text-sm text-teal-deep mt-1 font-semibold">{project.type}</p>
         </div>
-        <button className="text-slate-400 hover:text-white transition-colors p-1 bg-slate-700/50 rounded-lg">
-          {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-        </button>
-      </div>
-      
+        <span className="text-caption shrink-0 p-1.5 bg-sink rounded-lg">
+          {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+        </span>
+      </button>
+
       {isOpen && (
-        <div className="px-5 pb-5 pt-2 border-t border-slate-700/50 bg-slate-800/30">
-          <p className="text-sm font-medium text-slate-400 mb-3 flex items-center gap-2">
-            <CheckCircle2 size={16} className="text-emerald-500" />
+        <div className="px-5 pb-5 pt-2 border-t border-line bg-sink/40">
+          <p className="text-sm font-semibold text-caption mb-3 flex items-center gap-2">
+            <CheckCircle2 size={16} className="text-teal" />
             {t('ui.projectTasks')}
           </p>
           <ul className="space-y-2">
             {project.tasks.map((task, idx) => (
-              <li key={idx} className="text-slate-300 text-sm flex items-start gap-2">
-                <span className="text-indigo-500 mt-1">•</span>
+              <li key={idx} className="text-body text-sm flex items-start gap-2">
+                <span className="text-coral mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-coral"></span>
                 <span className="leading-relaxed">{task}</span>
               </li>
             ))}
@@ -68,8 +79,11 @@ const ProjectCard = ({ project }) => {
 };
 
 export default function App() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const personalInfo = t('personalInfo', { returnObjects: true });
+  const tasks = t('tasks', { returnObjects: true });
+  const expectations = t('expectations', { returnObjects: true });
+  const softPerks = t('softPerks', { returnObjects: true });
   const experience = t('experience', { returnObjects: true });
   const skills = t('skills', { returnObjects: true });
   const education = t('education', { returnObjects: true });
@@ -83,45 +97,28 @@ export default function App() {
     <User className="w-5 h-5" />,
   ];
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem('portfolio-language', lng);
-  };
+  const softPerkIcons = [
+    <Sparkles size={18} />,
+    <Users size={18} />,
+    <GraduationCap size={18} />,
+    <PartyPopper size={18} />,
+  ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-indigo-500/30">
-      
-      {/* HEADER / HERO SECTION */}
-      <header className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950 -z-10"></div>
+    <div className="min-h-screen bg-bg text-body font-sans selection:bg-teal-soft">
+      {/* HERO */}
+      <header className="relative overflow-hidden pt-10 pb-16 lg:pb-20">
+        <div
+          className="absolute inset-0 -z-10 opacity-70"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 85% 0%, rgba(14,156,143,0.10), transparent 60%), radial-gradient(ellipse 50% 45% at 0% 15%, rgba(210,94,54,0.08), transparent 55%)',
+          }}
+        ></div>
+
         <div className="max-w-5xl mx-auto px-6">
-          <div className="flex justify-end mb-6">
-            <div className="inline-flex rounded-lg border border-slate-700 overflow-hidden">
-              {['ru', 'en'].map((lng) => (
-                <button
-                  key={lng}
-                  type="button"
-                  onClick={() => changeLanguage(lng)}
-                  className={`px-4 py-2 text-sm font-semibold transition-colors ${
-                    i18n.language.startsWith(lng)
-                      ? 'bg-indigo-500 text-white'
-                      : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
-                  }`}
-                >
-                  {lng.toUpperCase()}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-            </span>
-            {ui.openToOffers}
-          </div>
-          <div className="grid gap-8 lg:grid-cols-[240px_1fr] items-start">
-            <figure className="bg-slate-900/60 border border-slate-800 rounded-2xl p-3 backdrop-blur-sm">
+          <div className="grid gap-8 lg:grid-cols-[260px_1fr] items-start">
+            <figure className="bg-surface border border-line rounded-2xl p-3 shadow-soft">
               <img
                 src={resumePhoto}
                 alt={ui.photoAlt}
@@ -130,84 +127,83 @@ export default function App() {
             </figure>
 
             <div>
-              <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4">
+              <h1 className="font-display text-5xl md:text-7xl font-extrabold text-ink tracking-tight mb-4 text-balance">
                 {personalInfo.name}
               </h1>
-              <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-caption font-semibold max-w-3xl mb-8 leading-snug">
                 {personalInfo.role}
               </p>
-              
-              <div className="flex flex-wrap gap-4 text-sm text-slate-300 mb-10">
-                <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-                  <MapPin size={16} className="text-indigo-400" />
+
+              <div className="flex flex-wrap items-center gap-3 text-sm text-body">
+                <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-line">
+                  <MapPin size={16} className="text-coral" />
                   {personalInfo.location}
                 </div>
-                <div className="flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800">
-                  <Wifi size={16} className="text-emerald-400" />
+                <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-line">
+                  <Wifi size={16} className="text-teal" />
                   {ui.remoteWork}
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-soft text-teal-deep font-bold font-display">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal"></span>
+                  </span>
+                  {ui.openToOffers}
                 </div>
               </div>
             </div>
-
-            <p className="text-lg text-slate-300 leading-relaxed bg-slate-900/50 p-6 rounded-2xl border border-slate-800 backdrop-blur-sm lg:col-span-2">
-              {personalInfo.about}
-            </p>
           </div>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 pb-24 space-y-24">
-        
-        {/* EXPERIENCE SECTION */}
-        <section id="experience">
-          <SectionHeading icon={<Briefcase />} title={ui.experienceTitle} />
-          
-          <div className="space-y-12 pl-4 border-l-2 border-slate-800 ml-4">
-            {experience.map((job) => (
-              <div key={job.id} className="relative pl-8">
-                {/* Timeline dot */}
-                <div className="absolute w-4 h-4 bg-indigo-500 rounded-full -left-[27px] top-1.5 ring-4 ring-slate-950"></div>
-                
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white">{job.company}</h3>
-                  <div className="flex flex-wrap gap-x-4 gap-y-2 mt-2 text-slate-400 font-medium">
-                    <span className="text-indigo-400">{job.role}</span>
-                    <span>•</span>
-                    <span>{job.period}</span>
-                    <span>•</span>
-                    <span>{job.location}</span>
-                  </div>
-                  <p className="mt-3 text-slate-300">{job.description}</p>
-                </div>
-
-                <div className="grid gap-4">
-                  {job.projects.map((proj, idx) => (
-                    <ProjectCard key={idx} project={proj} />
-                  ))}
-                </div>
-              </div>
-            ))}
+      <main className="max-w-5xl mx-auto px-6 pb-24 space-y-20 md:space-y-28">
+        {/* ABOUT */}
+        <section id="about">
+          <SectionHeading
+            icon={<User size={22} />}
+            title={ui.aboutTitle}
+            caption={ui.aboutCaption}
+          />
+          <div className="bg-surface border border-line rounded-2xl p-7 md:p-9 shadow-soft border-l-4 border-l-coral">
+            <p className="text-lg md:text-xl text-body leading-relaxed max-w-3xl">
+              {personalInfo.about}
+            </p>
           </div>
         </section>
 
-        {/* SKILLS SECTION */}
-        <section id="skills">
-          <SectionHeading icon={<BrainCircuit />} title={ui.skillsTitle} />
-          
-          <div className="grid md:grid-cols-2 gap-6">
+        {/* 3 — TASKS FOR ME */}
+        <section id="tasks">
+          <SectionHeading
+            icon={<ListChecks size={22} />}
+            title={ui.tasksTitle}
+            caption={ui.tasksCaption}
+          />
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            {tasks.map((task, idx) => (
+              <div key={idx} className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
+                <h3 className="font-display text-lg font-bold text-ink mb-2">{task.title}</h3>
+                <p className="text-body leading-relaxed">{task.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-caption mb-5">
+            {ui.tasksStack}
+          </h3>
+          <div className="grid md:grid-cols-2 gap-5">
             {skills.map((skillGroup, idx) => (
-              <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+              <div key={idx} className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-indigo-400 bg-indigo-500/10 p-2 rounded-lg">
+                  <span className="grid place-items-center w-9 h-9 rounded-lg bg-teal-soft text-teal-deep">
                     {skillIcons[idx]}
-                  </div>
-                  <h3 className="text-lg font-bold text-white">{skillGroup.category}</h3>
+                  </span>
+                  <h4 className="font-display text-base font-bold text-ink">{skillGroup.category}</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {skillGroup.items.map((item, i) => (
-                    <span 
-                      key={i} 
-                      className="px-3 py-1.5 bg-slate-800 text-slate-300 text-sm rounded-lg border border-slate-700/50 hover:bg-slate-700 hover:text-white transition-colors"
+                    <span
+                      key={i}
+                      className="px-3 py-1.5 bg-bg text-body text-sm rounded-lg border border-line"
                     >
                       {item}
                     </span>
@@ -218,68 +214,154 @@ export default function App() {
           </div>
         </section>
 
-        <div className="space-y-12">
-          {/* EDUCATION */}
-          <section id="education">
-            <SectionHeading icon={<GraduationCap />} title={ui.educationTitle} />
-            <div className="space-y-6">
-              {education.map((edu, idx) => (
-                <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                  <div className="text-sm text-indigo-400 font-bold mb-1">{edu.year}</div>
-                  <h3 className="text-lg font-bold text-white mb-2">{edu.university}</h3>
-                  <p className="text-slate-300 mb-2">{edu.degree}</p>
-                  {edu.details && (
-                    <p className="text-sm text-slate-400 italic bg-slate-800/50 p-3 rounded-lg mt-3 border border-slate-700/50">
-                      {edu.details}
-                    </p>
-                  )}
+        {/* 4 — EXPECTATIONS */}
+        <section id="expectations">
+          <SectionHeading
+            icon={<Compass size={22} />}
+            title={ui.expectationsTitle}
+            caption={ui.expectationsCaption}
+          />
+          <div className="grid gap-4">
+            {expectations.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-surface border border-line rounded-2xl p-6 shadow-soft flex gap-4 items-start"
+              >
+                <CheckCircle2 size={22} className="text-coral shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-display text-lg font-bold text-ink mb-1">{item.title}</h3>
+                  <p className="text-body leading-relaxed">{item.text}</p>
                 </div>
-              ))}
-            </div>
-          </section>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          {/* ACHIEVEMENTS */}
-          <section id="achievements">
-            <SectionHeading icon={<Trophy />} title={ui.achievementsTitle} />
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        {/* 5 — PERKS */}
+        <section id="perks">
+          <SectionHeading
+            icon={<Gift size={22} />}
+            title={ui.perksTitle}
+            caption={ui.perksCaption}
+          />
+
+          {/* 5a — what I bring to a team */}
+          <div className="grid sm:grid-cols-2 gap-5 mb-14">
+            {softPerks.map((perk, idx) => (
+              <div
+                key={idx}
+                className="bg-surface border border-line rounded-2xl p-6 shadow-soft flex gap-4 items-start"
+              >
+                <span className="grid place-items-center w-10 h-10 rounded-lg bg-coral-soft text-coral-deep shrink-0">
+                  {softPerkIcons[idx]}
+                </span>
+                <div>
+                  <h3 className="font-display text-lg font-bold text-ink mb-1">{perk.title}</h3>
+                  <p className="text-body leading-relaxed">{perk.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 5b — project portfolio */}
+          <h3 className="font-display text-xl font-extrabold text-coral-deep mb-8 flex items-center gap-2">
+            <FolderKanban size={20} className="text-coral-deep" />
+            {ui.perksProjects}
+          </h3>
+          <div className="space-y-12 pl-4 border-l-2 border-line ml-3 mb-16">
+            {experience.map((job) => (
+              <div key={job.id} className="relative pl-8">
+                <span className="absolute w-3.5 h-3.5 bg-teal rounded-full -left-[26px] top-1.5 ring-4 ring-bg"></span>
+                <div className="mb-6">
+                  <h4 className="font-display text-2xl font-bold text-ink">{job.company}</h4>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-caption font-medium text-sm">
+                    <span className="text-teal-deep font-semibold">{job.role}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{job.period}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{job.location}</span>
+                  </div>
+                  <p className="mt-3 text-body">{job.description}</p>
+                </div>
+                <div className="grid gap-4">
+                  {job.projects.map((proj, idx) => (
+                    <ProjectCard key={idx} project={proj} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 5c — interests + education + achievements */}
+          <div className="grid lg:grid-cols-2 gap-6">
+            {/* Interests */}
+            <div className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
+              <h3 className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2">
+                <Lightbulb size={18} className="text-coral" />
+                {ui.perksInterests}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {personalInfo.interests.map((interest, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1.5 bg-bg text-body text-sm rounded-lg border border-line"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Achievements */}
+            <div className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
+              <h3 className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2">
+                <Trophy size={18} className="text-coral" />
+                {ui.perksAchievements}
+              </h3>
               <ul className="space-y-4">
                 {achievements.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-4">
-                    <div className="mt-1 shrink-0 text-amber-400">
-                      <Trophy size={16} />
-                    </div>
+                  <li key={idx} className="flex items-start gap-3">
+                    <Trophy size={16} className="mt-1 shrink-0 text-coral" />
                     <div>
-                      <span className="text-slate-200">{item.title}</span>
-                      <span className="ml-2 text-sm font-semibold text-amber-400">{item.year}</span>
+                      <span className="text-ink">{item.title}</span>
+                      <span className="ml-2 text-sm font-bold text-coral-deep whitespace-nowrap">
+                        {item.year}
+                      </span>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
-          </section>
 
-          {/* INTERESTS */}
-          <section id="interests">
-            <SectionHeading icon={<Lightbulb />} title={ui.interestsTitle} />
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-              <ul className="space-y-4">
-                {personalInfo.interests.map((interest, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-300">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-indigo-500 shrink-0"></div>
-                    <span>{interest}</span>
-                  </li>
+            {/* Education */}
+            <div className="lg:col-span-2">
+              <h3 className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2">
+                <GraduationCap size={18} className="text-coral" />
+                {ui.perksEducation}
+              </h3>
+              <div className="grid md:grid-cols-2 gap-5">
+                {education.map((edu, idx) => (
+                  <div key={idx} className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
+                    <div className="text-sm text-teal-deep font-bold mb-1">{edu.year}</div>
+                    <h4 className="font-display text-lg font-bold text-ink mb-2">{edu.university}</h4>
+                    <p className="text-body mb-2">{edu.degree}</p>
+                    {edu.details && (
+                      <p className="text-sm text-caption italic bg-sink/60 p-3 rounded-lg mt-3 border border-line">
+                        {edu.details}
+                      </p>
+                    )}
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
-          </section>
-        </div>
-
+          </div>
+        </section>
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-800 bg-slate-950 py-12 text-center text-slate-500">
+      <footer className="border-t border-line py-12 text-center text-caption">
         <p>{ui.footerCopyright.replace('{year}', new Date().getFullYear())}</p>
-        <p className="text-sm mt-2">{ui.footerNote}</p>
+        <p className="text-sm mt-2 max-w-xl mx-auto px-6">{ui.footerNote}</p>
       </footer>
     </div>
   );
