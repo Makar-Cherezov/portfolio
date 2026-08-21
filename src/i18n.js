@@ -12,27 +12,27 @@ const resources = {
         positionsTitle: 'Позиции, на которые я претендую',
         positionsCaption: 'Роли, в которых я приношу максимум пользы',
         aboutTitle: 'О себе',
-        aboutCaption: 'Коротко о том, как я работаю и что мне важно',
-        tasksTitle: 'Какие задачи мне стоит давать',
-        tasksCaption: 'Типы задач, где я силён, — и мой стек под них',
+        aboutCaption: 'Коротко о моем опыте',
+        tasksTitle: 'Какие задачи меня мотивируют',
+        tasksCaption: 'Типы задач, где я силён, – и мой стек под них',
         tasksStack: 'Инструменты и стек',
-        expectationsTitle: 'Что я жду от работодателя',
-        expectationsCaption: 'Условия, в которых я работаю с максимальной отдачей',
-        perksTitle: 'Мои плюшки',
-        perksCaption: 'Что вы получаете вместе со мной — сверх резюме',
-        perksProjects: 'Портфолио проектов',
+        perksTitle: 'Портфолио проектов',
         perksHuman: 'Что приношу в команду',
         perksInterests: 'Профессиональные интересы',
         perksEducation: 'Образование',
         perksAchievements: 'Достижения',
+        pageNav: 'Навигация по странице',
         footerCopyright: '© {year} Макар Черезов. Сайт-портфолио.',
-        footerNote:
-          'Спроектировано для демонстрации расширенного опыта, не вмещающегося в стандартное резюме.',
       },
       personalInfo: {
         name: 'Макар Черезов',
         role: 'Middle Системный аналитик с практической экспертизой в AI и менеджменте',
-        location: 'Новосибирск, Россия',
+        location: 'Новосибирск',
+        contacts: {
+          email: 'cherezov.m003@gmail.com',
+          telegram: '@styrtet_keiser',
+          phone: '+79134520269',
+        },
         about:
           '12 проектов за 3 года работы. Как менеджер проектов в агрохолдинге управлял внедрением ИТ-решений, создавал процессы и подразделения, выстраивал проектную культуру в департаменте. В заказной разработке внедрял AI в телеком, документооборот, управление знаниями; создавал продукты с AI: платформа управления рекламой в e-commerce, финтех-приложение для управления финансами на рынке ОАЭ. В командной работе применяю передовые практики и инструменты, создаю доброжелательную атмосферу, слышу разные точки зрения и грамотно доношу свою.',
         interests: [
@@ -63,8 +63,8 @@ const resources = {
       ],
       tasks: [
         {
-          title: 'Разобраться в процессе',
-          text: 'Провести обследование, описать AS IS и TO BE в BPMN, найти узкие места и точки для улучшения.',
+          title: 'Разобраться в процессе и предметной области',
+          text: 'Изучить домен и найти инсайты, обследовать и описать процесс AS IS и TO BE в BPMN, найти узкие места и точки для улучшения.',
         },
         {
           title: 'Спроектировать решение',
@@ -76,29 +76,7 @@ const resources = {
         },
         {
           title: 'Навести порядок',
-          text: 'Выстроить методологию, базу знаний, реестр решений и стандарты работы — даже с нуля в хаотичной среде.',
-        },
-      ],
-      expectations: [
-        {
-          title: 'Задачи со смыслом и рост',
-          text: 'Сложные задачи на стыке анализа и AI, где видно влияние на продукт и бизнес.',
-        },
-        {
-          title: 'Порядок в процессах — или мандат его навести',
-          text: 'Либо зрелые процессы, либо свобода и доверие выстроить их самому.',
-        },
-        {
-          title: 'Культура обучения',
-          text: 'Обмен знаниями, менторство, ретроспективы и право на ошибку.',
-        },
-        {
-          title: 'Дружелюбная команда',
-          text: 'Здоровая атмосфера, открытая коммуникация и уважение друг к другу.',
-        },
-        {
-          title: 'Гибкость',
-          text: 'Удалёнка или гибрид и фокус на результат, а не на часы в офисе.',
+          text: 'Выстроить методологию, базу знаний, реестр решений и стандарты работы – даже с нуля в хаотичной среде.',
         },
       ],
       softPerks: [
@@ -127,7 +105,7 @@ const resources = {
           period: 'Май 2025 - настоящее время',
           location: 'Москва (удалённо)',
           description:
-            'Работа в формате заказной разработки, стартапов и лабораторий инноваций. Проектирование систем с внедрением AI.',
+            'Работа в формате заказной разработки, стартапов и лабораторий инноваций. Проектирование систем с внедрением AI в разных доменах, проведение вторичных исследований.',
           projects: [
             {
               name: 'Приложение для управления финансами в ОАЭ с AI-ассистентом',
@@ -162,10 +140,9 @@ const resources = {
                 'Обработал результаты каст-дева с селлерами, провел анализ конкурентов.',
                 'Собрал, формализовал и декомпозировал бизнес-требования до функциональных (с критериями приемки).',
                 'Подобрал референсы UX/UI, на которых обосновалась концепция агента.',
-                'Спроектировал AI-агента: карта сценариев, HLD, Sequence-диаграммы, разработал Structured Output.',
+                'Спроектировал AI-агента: карта сценариев, HLD, Sequence-диаграммы; разработал Structured Output, написал тест-кейсы.',
                 'Спроектировал API, схему данных, интеграции с маркетплейсом.',
-                'Создал базу знаний проекта, написал тест-кейсы, внедрил диаграмму Гантта.',
-                'Скорректировал процессы менеджмента с меняющейся командой, эскалировал проблемы и добился рефлексии на проекте.',
+                'Создал базу знаний проекта, внедрил роадмап для отслеживания планов проекта.',
                 'Проводил встречи со стейкхолдерами (CEO, BizDev, PO, селлеры) и груминги для команды.',
               ],
             },
@@ -273,7 +250,7 @@ const resources = {
               tasks: [
                 'Провел обследование бизнес-процессов отдела финансов и казначейства холдинга.',
                 'Построил схемы процессов AS IS и TO BE в BPMN.',
-                'Самостоятельно проанализировал самописные конфигурации 1С, изучил обмены данными между ними — на основании этого разработал техническое задание на доработку.',
+                'Самостоятельно проанализировал самописные конфигурации 1С, изучил обмены данными между ними – на основании этого разработал техническое задание на доработку.',
                 'Участвовал в проекте роботизации (RPA): провел анализ бизнес-процесса, разработал концепцию и представил ее ЛПР и подрядчикам.',
               ],
             },
@@ -330,14 +307,12 @@ const resources = {
         {
           category: 'Управление проектами и процесссами, качество процессов',
           items: [
-            'Scrum, Kanban, TDD, FDD, DDD',
+            'Scrum, Kanban, TDD, FDD, DDD, SDD',
             'OMG Essence, CMMI, Cynefin',
             'Дорожные карты, Гантта, RACI',
             'OKR, SMART, DoD, DoR',
             'MoSCoW, RICE',
-            'Управление рисками',
-            'Модель Ицхака Адизеса (PAEI)',
-            'Расчет экономической эффективности',
+            'Технико-экономическое обоснование',
           ],
         },
         {
@@ -395,25 +370,25 @@ const resources = {
         aboutTitle: 'About me',
         aboutCaption: 'A short take on how I work and what matters to me',
         tasksTitle: 'Tasks worth giving me',
-        tasksCaption: 'Where I am strong — and the stack behind it',
+        tasksCaption: 'Where I am strong – and the stack behind it',
         tasksStack: 'Tools and stack',
-        expectationsTitle: 'What I expect from an employer',
-        expectationsCaption: 'Conditions where I deliver my best',
-        perksTitle: 'My perks',
-        perksCaption: 'What you get with me — beyond the resume',
-        perksProjects: 'Project portfolio',
+        perksTitle: 'Project portfolio',
         perksHuman: 'What I bring to a team',
         perksInterests: 'Professional interests',
         perksEducation: 'Education',
         perksAchievements: 'Achievements',
+        pageNav: 'Page navigation',
         footerCopyright: '© {year} Makar Cherezov. Portfolio website.',
-        footerNote:
-          'Designed to showcase extended experience that does not fit in a standard one-page resume.',
       },
       personalInfo: {
         name: 'Makar Cherezov',
         role: 'Business & Systems Analyst · IT Project Manager',
-        location: 'Novosibirsk, Russia',
+        location: 'Novosibirsk',
+        contacts: {
+          email: 'cherezov.m003@gmail.com',
+          telegram: '@styrtet_keiser',
+          phone: '+79134520269',
+        },
         about:
           'I have hands-on experience in problem analysis and AI-driven solution implementation. I am interested in how organizations work and how they can be improved. I study engineering, quality, and management standards. I implemented project management tools in an organization assessed at CMMI level 1 (initial, chaotic). I enjoy both learning and mentoring colleagues.',
         interests: [
@@ -457,29 +432,7 @@ const resources = {
         },
         {
           title: 'Bring order',
-          text: 'Set up methodology, knowledge base, decision register, and working standards — even from scratch in a chaotic environment.',
-        },
-      ],
-      expectations: [
-        {
-          title: 'Meaningful work and growth',
-          text: 'Complex tasks at the intersection of analysis and AI with visible impact on product and business.',
-        },
-        {
-          title: 'Mature processes — or a mandate to build them',
-          text: 'Either established processes, or the freedom and trust to set them up myself.',
-        },
-        {
-          title: 'A learning culture',
-          text: 'Knowledge sharing, mentorship, retrospectives, and room to make mistakes.',
-        },
-        {
-          title: 'A friendly team',
-          text: 'A healthy atmosphere, open communication, and mutual respect.',
-        },
-        {
-          title: 'Flexibility',
-          text: 'Remote or hybrid work and a focus on outcomes rather than hours in the office.',
+          text: 'Set up methodology, knowledge base, decision register, and working standards – even from scratch in a chaotic environment.',
         },
       ],
       softPerks: [
@@ -686,14 +639,12 @@ const resources = {
         {
           category: 'Project and process management, process quality',
           items: [
-            'Scrum, Kanban, TDD, FDD, DDD',
+            'Scrum, Kanban, TDD, FDD, DDD, SDD',
             'OMG Essence, CMMI, Cynefin',
             'Roadmaps, Gantt, RACI',
             'OKR, SMART, DoD, DoR',
             'MoSCoW, RICE',
-            'Risk management',
-            'Ichak Adizes model (PAEI)',
-            'Economic efficiency calculation',
+            'Techno-economic justification',
           ],
         },
         {
@@ -741,7 +692,7 @@ const resources = {
   },
 };
 
-// EN toggle is temporarily hidden — pin the site to Russian until a dedicated
+// EN toggle is temporarily hidden – pin the site to Russian until a dedicated
 // English version is ready.
 const initialLanguage = 'ru';
 

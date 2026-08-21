@@ -3,6 +3,9 @@ import {
   GraduationCap,
   User,
   MapPin,
+  Mail,
+  MessageCircle,
+  Phone,
   Wifi,
   ChevronDown,
   ChevronUp,
@@ -12,8 +15,6 @@ import {
   Trophy,
   Sparkles,
   Users,
-  Compass,
-  Gift,
   ListChecks,
   FolderKanban,
   PartyPopper,
@@ -22,6 +23,10 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import resumePhoto from '../Фото для резюме.png';
+import TableOfContents from './components/TableOfContents';
+
+// Temporarily hidden — soft-perk cards need more work before shipping.
+const SHOW_SOFT_PERKS = false;
 
 const SectionHeading = ({ icon, title, caption }) => (
   <div className="mb-10">
@@ -82,13 +87,22 @@ export default function App() {
   const { t } = useTranslation();
   const personalInfo = t('personalInfo', { returnObjects: true });
   const tasks = t('tasks', { returnObjects: true });
-  const expectations = t('expectations', { returnObjects: true });
   const softPerks = t('softPerks', { returnObjects: true });
   const experience = t('experience', { returnObjects: true });
   const skills = t('skills', { returnObjects: true });
   const education = t('education', { returnObjects: true });
   const achievements = t('achievements', { returnObjects: true });
   const ui = t('ui', { returnObjects: true });
+
+  const navItems = [
+    { id: 'about', title: ui.aboutTitle, level: 1 },
+    { id: 'tasks', title: ui.tasksTitle, level: 1 },
+    { id: 'tasks-stack', title: ui.tasksStack, level: 2 },
+    { id: 'perks', title: ui.perksTitle, level: 1 },
+    { id: 'perks-interests', title: ui.perksInterests, level: 2 },
+    { id: 'perks-achievements', title: ui.perksAchievements, level: 2 },
+    { id: 'perks-education', title: ui.perksEducation, level: 2 },
+  ];
 
   const skillIcons = [
     <BrainCircuit className="w-5 h-5" />,
@@ -106,6 +120,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bg text-body font-sans selection:bg-teal-soft">
+      <TableOfContents items={navItems} label={ui.pageNav} />
       {/* HERO */}
       <header className="relative overflow-hidden pt-10 pb-16 lg:pb-20">
         <div
@@ -130,11 +145,13 @@ export default function App() {
               <h1 className="font-display text-5xl md:text-7xl font-extrabold text-ink tracking-tight mb-4 text-balance">
                 {personalInfo.name}
               </h1>
-              <p className="text-xl md:text-2xl text-caption font-semibold max-w-3xl mb-8 leading-snug">
+              <p className="text-xl md:text-2xl text-caption font-semibold max-w-3xl leading-snug">
                 {personalInfo.role}
               </p>
+            </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-sm text-body">
+            <div className="lg:col-span-2 flex flex-col gap-3 text-sm text-body">
+              <div className="flex flex-wrap items-center gap-3">
                 <div className="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-line">
                   <MapPin size={16} className="text-coral" />
                   {personalInfo.location}
@@ -151,6 +168,32 @@ export default function App() {
                   {ui.openToOffers}
                 </div>
               </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href={`mailto:${personalInfo.contacts.email}`}
+                  className="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-line hover:border-teal/50 transition-colors"
+                >
+                  <Mail size={16} className="text-coral" />
+                  {personalInfo.contacts.email}
+                </a>
+                <a
+                  href={`https://t.me/${personalInfo.contacts.telegram.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-line hover:border-teal/50 transition-colors"
+                >
+                  <MessageCircle size={16} className="text-teal" />
+                  {personalInfo.contacts.telegram}
+                </a>
+                <a
+                  href={`tel:${personalInfo.contacts.phone.replace(/\s/g, '')}`}
+                  className="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-line hover:border-teal/50 transition-colors"
+                >
+                  <Phone size={16} className="text-coral" />
+                  {personalInfo.contacts.phone}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -158,7 +201,7 @@ export default function App() {
 
       <main className="max-w-5xl mx-auto px-6 pb-24 space-y-20 md:space-y-28">
         {/* ABOUT */}
-        <section id="about">
+        <section id="about" className="scroll-mt-10">
           <SectionHeading
             icon={<User size={22} />}
             title={ui.aboutTitle}
@@ -171,8 +214,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* 3 — TASKS FOR ME */}
-        <section id="tasks">
+        {/* 3 – TASKS FOR ME */}
+        <section id="tasks" className="scroll-mt-10">
           <SectionHeading
             icon={<ListChecks size={22} />}
             title={ui.tasksTitle}
@@ -187,7 +230,10 @@ export default function App() {
             ))}
           </div>
 
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-caption mb-5">
+          <h3
+            id="tasks-stack"
+            className="font-display text-sm font-bold uppercase tracking-wider text-caption mb-5 scroll-mt-10"
+          >
             {ui.tasksStack}
           </h3>
           <div className="grid md:grid-cols-2 gap-5">
@@ -214,60 +260,31 @@ export default function App() {
           </div>
         </section>
 
-        {/* 4 — EXPECTATIONS */}
-        <section id="expectations">
-          <SectionHeading
-            icon={<Compass size={22} />}
-            title={ui.expectationsTitle}
-            caption={ui.expectationsCaption}
-          />
-          <div className="grid gap-4">
-            {expectations.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-surface border border-line rounded-2xl p-6 shadow-soft flex gap-4 items-start"
-              >
-                <CheckCircle2 size={22} className="text-coral shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-display text-lg font-bold text-ink mb-1">{item.title}</h3>
-                  <p className="text-body leading-relaxed">{item.text}</p>
+        {/* 5 – PERKS */}
+        <section id="perks" className="scroll-mt-10">
+          <SectionHeading icon={<FolderKanban size={22} />} title={ui.perksTitle} />
+
+          {/* 5a – what I bring to a team (hidden for now — needs more work) */}
+          {SHOW_SOFT_PERKS && (
+            <div className="grid sm:grid-cols-2 gap-5 mb-14">
+              {softPerks.map((perk, idx) => (
+                <div
+                  key={idx}
+                  className="bg-surface border border-line rounded-2xl p-6 shadow-soft flex gap-4 items-start"
+                >
+                  <span className="grid place-items-center w-10 h-10 rounded-lg bg-coral-soft text-coral-deep shrink-0">
+                    {softPerkIcons[idx]}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-ink mb-1">{perk.title}</h3>
+                    <p className="text-body leading-relaxed">{perk.text}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          )}
 
-        {/* 5 — PERKS */}
-        <section id="perks">
-          <SectionHeading
-            icon={<Gift size={22} />}
-            title={ui.perksTitle}
-            caption={ui.perksCaption}
-          />
-
-          {/* 5a — what I bring to a team */}
-          <div className="grid sm:grid-cols-2 gap-5 mb-14">
-            {softPerks.map((perk, idx) => (
-              <div
-                key={idx}
-                className="bg-surface border border-line rounded-2xl p-6 shadow-soft flex gap-4 items-start"
-              >
-                <span className="grid place-items-center w-10 h-10 rounded-lg bg-coral-soft text-coral-deep shrink-0">
-                  {softPerkIcons[idx]}
-                </span>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-ink mb-1">{perk.title}</h3>
-                  <p className="text-body leading-relaxed">{perk.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* 5b — project portfolio */}
-          <h3 className="font-display text-xl font-extrabold text-coral-deep mb-8 flex items-center gap-2">
-            <FolderKanban size={20} className="text-coral-deep" />
-            {ui.perksProjects}
-          </h3>
+          {/* 5b – project portfolio */}
           <div className="space-y-12 pl-4 border-l-2 border-line ml-3 mb-16">
             {experience.map((job) => (
               <div key={job.id} className="relative pl-8">
@@ -292,11 +309,14 @@ export default function App() {
             ))}
           </div>
 
-          {/* 5c — interests + education + achievements */}
+          {/* 5c – interests + education + achievements */}
           <div className="grid lg:grid-cols-2 gap-6">
             {/* Interests */}
             <div className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
-              <h3 className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2">
+              <h3
+                id="perks-interests"
+                className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2 scroll-mt-10"
+              >
                 <Lightbulb size={18} className="text-coral" />
                 {ui.perksInterests}
               </h3>
@@ -314,7 +334,10 @@ export default function App() {
 
             {/* Achievements */}
             <div className="bg-surface border border-line rounded-2xl p-6 shadow-soft">
-              <h3 className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2">
+              <h3
+                id="perks-achievements"
+                className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2 scroll-mt-10"
+              >
                 <Trophy size={18} className="text-coral" />
                 {ui.perksAchievements}
               </h3>
@@ -335,7 +358,10 @@ export default function App() {
 
             {/* Education */}
             <div className="lg:col-span-2">
-              <h3 className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2">
+              <h3
+                id="perks-education"
+                className="font-display text-lg font-extrabold text-coral-deep mb-4 flex items-center gap-2 scroll-mt-10"
+              >
                 <GraduationCap size={18} className="text-coral" />
                 {ui.perksEducation}
               </h3>
@@ -360,8 +386,31 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="border-t border-line py-12 text-center text-caption">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-4 text-sm">
+          <a
+            href={`mailto:${personalInfo.contacts.email}`}
+            className="hover:text-teal-deep transition-colors"
+          >
+            {personalInfo.contacts.email}
+          </a>
+          <span aria-hidden="true">·</span>
+          <a
+            href={`https://t.me/${personalInfo.contacts.telegram.replace('@', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-teal-deep transition-colors"
+          >
+            {personalInfo.contacts.telegram}
+          </a>
+          <span aria-hidden="true">·</span>
+          <a
+            href={`tel:${personalInfo.contacts.phone.replace(/\s/g, '')}`}
+            className="hover:text-teal-deep transition-colors"
+          >
+            {personalInfo.contacts.phone}
+          </a>
+        </div>
         <p>{ui.footerCopyright.replace('{year}', new Date().getFullYear())}</p>
-        <p className="text-sm mt-2 max-w-xl mx-auto px-6">{ui.footerNote}</p>
       </footer>
     </div>
   );
