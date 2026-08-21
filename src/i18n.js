@@ -102,7 +102,7 @@ const resources = {
           id: 'red_mad_robot',
           company: 'red_mad_robot',
           role: 'Бизнес- и системный аналитик',
-          period: 'Май 2025 - настоящее время',
+          period: 'Апрель 2025 - настоящее время',
           location: 'Москва (удалённо)',
           description:
             'Работа в формате заказной разработки, стартапов и лабораторий инноваций. Проектирование систем с внедрением AI в разных доменах, проведение вторичных исследований.',
@@ -186,7 +186,7 @@ const resources = {
           id: 'sibagro',
           company: 'Сибагро - ИТ',
           role: 'Администратор проектов / Менеджер',
-          period: 'Октябрь 2024 - Май 2025',
+          period: 'Август 2024 - Апрель 2025',
           location: 'Томск',
           description:
             'Администрировал портфель из 5 проектов цифровой трансформации растениеводства: Создание Единого диспетчерского центра растениеводства, Внедрение BI-отчетности, Внедрение мониторинга СЗР, Внедрение мониторинга ГСМ, Внедрение комплексного агроскаутинга. Каждый проект масштабировался сразу на Новосибирск и Красноярск. Разработал и защитил дорожную карту перед топ-менеджментом холдинга.',
@@ -239,7 +239,7 @@ const resources = {
           id: 'sibagro_system_analyst',
           company: 'Сибагро - ИТ',
           role: 'Системный аналитик',
-          period: 'Апрель 2024 - Октябрь 2024',
+          period: 'Январь 2024 - Август 2024',
           location: 'Томск',
           description:
             'Обследование процессов финансового блока холдинга, разработка ТЗ на доработку 1С, участие в проекте роботизации.',
@@ -260,7 +260,7 @@ const resources = {
           id: 'intek',
           company: 'Интэк',
           role: 'Проджект-менеджер',
-          period: 'Декабрь 2023 - Январь 2024',
+          period: 'Сентябрь 2023 - Декабрь 2023',
           location: 'Томск',
           description: 'Управление небольшими проектами по разработке БПЛА',
           projects: [
@@ -458,7 +458,7 @@ const resources = {
           id: 'red_mad_robot',
           company: 'red_mad_robot',
           role: 'Business & Systems Analyst',
-          period: 'May 2025 - Present',
+          period: 'Apr 2025 - Present',
           location: 'Moscow (Remote)',
           description:
             'Worked in startup-like innovation labs and product teams. Designed systems with AI integration.',
@@ -518,7 +518,7 @@ const resources = {
           id: 'sibagro',
           company: 'Sibagro - IT',
           role: 'Project Administrator',
-          period: 'Oct 2024 - May 2025',
+          period: 'Aug 2024 - Apr 2025',
           location: 'Tomsk',
           description:
             'Administered a portfolio of 5 digital transformation projects in crop farming: a unified dispatch center, BI reporting, crop protection product monitoring, fuel monitoring, and integrated agri-scouting. Each project was scaled simultaneously to Novosibirsk and Krasnoyarsk. Developed and defended the roadmap before holding top management.',
@@ -571,7 +571,7 @@ const resources = {
           id: 'sibagro_system_analyst',
           company: 'Sibagro - IT',
           role: 'Systems Analyst',
-          period: 'Apr 2024 - Oct 2024',
+          period: 'Jan 2024 - Aug 2024',
           location: 'Tomsk',
           description:
             'Analyzed finance division processes in the holding, developed technical specification for 1C enhancements, and participated in an RPA initiative.',
@@ -592,7 +592,7 @@ const resources = {
           id: 'intek',
           company: 'Intek',
           role: 'Project Manager',
-          period: 'Dec 2023 - Jan 2024',
+          period: 'Sep 2023 - Dec 2023',
           location: 'Tomsk',
           description: 'Managed small UAV development projects.',
           projects: [
